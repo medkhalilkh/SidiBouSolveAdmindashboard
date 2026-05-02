@@ -20,16 +20,11 @@ const navItems = [
 export default function Sidebar({ isCollapsed, setIsCollapsed }) {
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-      <div className="sidebar-logo">
-        <div className="logo-group">
-          <img src="/logo.svg" alt="Sidi Bou Solve" className="sidebar-logo-img" />
-        </div>
-        <Menu
-          size={20}
-          className="menu-toggle-icon"
-          onClick={() => setIsCollapsed(!isCollapsed)}
-        />
-      </div>
+      <div className="sidebar-logo" onClick={() => setIsCollapsed(!isCollapsed)} style={{ cursor: "pointer" }}>
+  <div className="logo-group">
+    <img src="/logo.svg" alt="Sidi Bou Solve" className="sidebar-logo-img" />
+  </div>
+</div>
 
       <nav className="sidebar-nav">
         {navItems.map(({ to, label, icon: Icon }) => (

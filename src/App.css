@@ -13,6 +13,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  
 }
 
 /* --- 2. Main Layout Structure --- */
@@ -29,7 +30,7 @@ body {
   flex-direction: column !important;
   margin-left: 260px !important;
   transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  background-color: #f4f7fe !important;
+  background-color:  #0f1c2e !important;
   min-width: 0 !important;
 }
 

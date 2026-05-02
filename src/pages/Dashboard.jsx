@@ -1,4 +1,4 @@
-import { Users, FileText, BarChart2, CheckSquare, FilePlus, UserPlus, XCircle } from "lucide-react";
+import { FileText, BarChart2, UserPlus, FilePlus, CheckSquare, XCircle, Users } from "lucide-react";
 import StatsCard from "../components/StatsCard";
 import "../styles/Dashboard.css";
 
@@ -9,34 +9,67 @@ const activityIcons = {
   failed: XCircle,
 };
 
+// Initials + color per user
+const activityMeta = {
+  "Hedi Temani":   { initials: "HT", color: "#e8f0fd", textColor: "#185fa5" },
+  "Jasser Mtir":   { initials: "JM", color: "#e1f5ee", textColor: "#0f6e56" },
+  "Houda Zainine": { initials: "HZ", color: "#faeeda", textColor: "#854f0b" },
+};
+
+const timeAgo = ["Il y a 2h", "Il y a 4h", "Il y a 5h", "Il y a 6h"];
+
+function extractName(message) {
+  return Object.keys(activityMeta).find((name) => message.startsWith(name));
+}
+
 export default function Dashboard() {
-  // Static Stats Data
   const stats = { users: 3, quizzes: 12, attempts: 45 };
 
-  // Static Activity Data with your specified users
   const activity = [
     { type: "registered", message: "Hedi Temani a rejoint la plateforme" },
     { type: "completed", message: "Jasser Mtir a terminé le quiz 'Histoire de la Tunisie'" },
-    { type: "created", message: "Houda Zainine a créé un nouveau quiz" },
+    { type: "created",   message: "Houda Zainine a créé un nouveau quiz" },
     { type: "completed", message: "Hedi Temani a obtenu 90 % au 'MATHEMATICS'" },
   ];
 
-  // Static Popular Quiz Data
   const popular = {
     name: "Politique",
     category: "Histoire",
     difficulty: "Moyen",
     attempts: 24,
     avgScore: 85,
-    questions: 10
+    questions: 10,
   };
 
   return (
     <div className="dashboard">
       <div className="dashboard-stats-row">
-        <StatsCard label="Nombre total d'utilisateurs" value={stats.users} sub="+ 3 cette semaine" icon={Users} />
-        <StatsCard label="Nombre total de quiz" value={stats.quizzes} sub="12 publiés" icon={FileText} />
-        <StatsCard label="Nombre total de tentatives" value={stats.attempts} sub="Global" icon={BarChart2} />
+        <StatsCard
+          label="Nombre total d'utilisateurs"
+          value={stats.users}
+          sub="↑ +3 cette semaine"
+          subPositive
+          icon={Users}
+          accentColor="#3b82f6"
+          iconBg="#e8f0fd"
+        />
+        <StatsCard
+          label="Nombre total de quiz"
+          value={stats.quizzes}
+          sub="12 publiés"
+          subPositive
+          icon={FileText}
+          accentColor="#1d9e75"
+          iconBg="#e1f5ee"
+        />
+        <StatsCard
+          label="Nombre total de tentatives"
+          value={stats.attempts}
+          sub="Global"
+          icon={BarChart2}
+          accentColor="#ef9f27"
+          iconBg="#faeeda"
+        />
       </div>
 
       <div className="dashboard-bottom-row">
@@ -46,11 +79,24 @@ export default function Dashboard() {
           </div>
           <div className="activity-list">
             {activity.map((item, i) => {
-              const Icon = activityIcons[item.type] || CheckSquare;
+              const name = extractName(item.message);
+              const meta = name ? activityMeta[name] : null;
               return (
                 <div key={i} className="activity-item">
-                  <Icon size={15} />
-                  <span>{item.message}</span>
+                  {meta ? (
+                    <div
+                      className="activity-avatar"
+                      style={{ background: meta.color, color: meta.textColor }}
+                    >
+                      {meta.initials}
+                    </div>
+                  ) : (
+                    (() => { const Icon = activityIcons[item.type] || CheckSquare; return <Icon size={15} />; })()
+                  )}
+                  <div className="activity-item-body">
+                    <span>{item.message}</span>
+                    <span className="activity-time">{timeAgo[i]}</span>
+                  </div>
                 </div>
               );
             })}
@@ -59,11 +105,14 @@ export default function Dashboard() {
 
         {popular && (
           <div className="popular-card">
-            <div className="popular-card-title">🔥Quiz le plus populaire</div>
+            <div className="popular-card-title">🔥 Quiz le plus populaire</div>
             <div>
               <div className="popular-card-name">{popular.name}</div>
-              <div className="popular-card-tag">{popular.category} · {popular.difficulty}</div>
+              <div className="popular-card-tag">
+                {popular.category} · {popular.difficulty}
+              </div>
             </div>
+            <div className="popular-card-divider" />
             <div className="popular-card-stats">
               <div className="popular-stat">
                 <span className="popular-stat-value">{popular.attempts}</span>

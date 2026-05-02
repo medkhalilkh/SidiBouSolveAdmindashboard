@@ -1,12 +1,16 @@
-import { useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 
-export default function Navbar({ title = "Sidi bou solve - apprendre en jouant,progresser en s'amusant" }) {
-  const navigate = useNavigate();
+export default function Navbar() {
   return (
     <div className="navbar">
-      <span className="navbar-slogan">{title}</span>
-
+      <div className="navbar-brand">
+        <span className="navbar-title">
+          SIDI BOU<span className="navbar-title-bold"> SOlVE</span>
+        </span>
+        <span className="navbar-slogan">
+          Apprendre en jouant · progresser en s'amusant
+        </span>
+      </div>
     </div>
   );
 }

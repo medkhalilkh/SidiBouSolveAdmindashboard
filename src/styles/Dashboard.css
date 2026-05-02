@@ -37,7 +37,7 @@
 .activity-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
 }
 
 .activity-item {
@@ -47,12 +47,43 @@
   font-size: 12px;
   color: #444;
   line-height: 1.4;
+  padding: 9px 0;
+  border-bottom: 0.5px solid #f0f2f5;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .activity-item svg {
   flex-shrink: 0;
   margin-top: 1px;
   color: #1e4a7a;
+}
+
+/* Avatar circle for activity items */
+.activity-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.activity-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.activity-time {
+  font-size: 10px;
+  color: #adb5c2;
 }
 
 /* Popular quiz card */
@@ -90,16 +121,28 @@
   margin-top: 2px;
 }
 
+/* Divider before stats */
+.popular-card-divider {
+  border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+  margin: 2px 0;
+}
+
 .popular-card-stats {
   display: flex;
-  gap: 20px;
-  margin-top: 8px;
+  gap: 0;
+  margin-top: 4px;
 }
 
 .popular-stat {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  flex: 1;
+  text-align: center;
+}
+
+.popular-stat:not(:last-child) {
+  border-right: 0.5px solid rgba(255, 255, 255, 0.15);
 }
 
 .popular-stat-value {
@@ -111,6 +154,21 @@
 .popular-stat-label {
   font-size: 10px;
   color: #7ec8e3;
+}
+
+/* ── Action buttons (Users page) ── */
+.action-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
 }
 
 .btn-block {
@@ -125,7 +183,6 @@
   border-color: #cf1322;
 }
 
-/* Unblock Button - Subtle Green */
 .btn-unblock {
   background-color: #f6ffed;
   color: #389e0d;
@@ -138,7 +195,6 @@
   border-color: #389e0d;
 }
 
-/* Row styling when a user is blocked */
 .row-blocked {
   background-color: #fafafa;
   opacity: 0.8;
@@ -146,18 +202,4 @@
 
 .row-blocked td {
   color: #8c8c8c;
-}
-
-.action-btn {
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 80px;
 }
