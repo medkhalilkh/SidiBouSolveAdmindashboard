@@ -136,3 +136,10 @@
 }
 
 
+/* Add this — only applies when collapsed */
+.sidebar.collapsed .sidebar-footer {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: unset;
+}
