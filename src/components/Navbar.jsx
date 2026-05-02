@@ -1,16 +1,13 @@
+import { Bell } from "lucide-react";
 import "../styles/Navbar.css";
 
 export default function Navbar() {
   return (
     <div className="navbar">
-      <div className="navbar-brand">
-        <span className="navbar-title">
-          SIDI BOU<span className="navbar-title-bold"> SOlVE</span>
-        </span>
-        <span className="navbar-slogan">
-          Apprendre en jouant · progresser en s'amusant
-        </span>
-      </div>
+      <span className="navbar-title">Sidi Bou Solve</span>
+      <button className="navbar-bell-btn">
+        <Bell size={18} fill="#f59e0b" color="#f59e0b" />
+      </button>
     </div>
   );
 }

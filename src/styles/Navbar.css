@@ -1,32 +1,34 @@
 .navbar {
   width: 100%;
-  background: #0f1c2e;
-  padding: 14px 28px 10px;
+  background: #ffffff;
+  border-bottom: 1px solid #e8edf3;
+  padding: 10px 24px;
   display: flex;
-  align-items: flex-start;
-}
-
-.navbar-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 50px;
 }
 
 .navbar-title {
-  font-size: 22px;
-  font-weight: 400;
-  color: White;
-  letter-spacing: 0.2px;
-}
-
-.navbar-title-bold {
+  font-size: 15px;
   font-weight: 700;
-  color: #5DB4D3;
+  color: #1e4a7a;
 }
 
-.navbar-slogan {
-  font-size: 12px;
-  font-weight: 400;
-  color: #6b84a8;
-  letter-spacing: 0.1px;
+.navbar-bell-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #e8edf3;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar-bell-btn:hover {
+  background: #f8fafc;
 }
