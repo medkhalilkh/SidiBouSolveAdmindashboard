@@ -1,5 +1,5 @@
-html,
-body,
+/* --- Fichier App.css complet avec vos styles + mes ajouts --- */
+
 #root {
   width: 100% !important;
   height: 100% !important;
@@ -7,7 +7,6 @@ body,
   padding: 0 !important;
   max-width: none !important;
   text-align: left !important;
-  /* Overrides Vite's text-align: center */
 }
 
 body {
@@ -24,24 +23,20 @@ body {
   background-color: #f4f7fe;
 }
 
-/* The main content area that needs to shift */
 .app-main {
   flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
-  /* Use !important to override any centered #root or hidden styles */
   margin-left: 260px !important;
   transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   background-color: #f4f7fe !important;
   min-width: 0 !important;
 }
 
-/* Reduces margin when sidebar is toggled */
 .app-main.collapsed {
   margin-left: 80px !important;
 }
 
-/* Container for your dashboard/quizzes/categories content */
 .page-container {
   padding: 30px;
   width: 100%;
@@ -57,11 +52,10 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  
   position: fixed;
   left: 0;
   top: 0;
-  padding: 20px 0;
+  padding: 20px 0 0 0; /* Modifié pour inclure l'en-tête */
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
 }
@@ -70,7 +64,34 @@ body {
   width: 80px;
 }
 
-/* Pushes the user profile card to the bottom */
+/* --- NOUVEAU: Sidebar Header avec logo cliquable --- */
+.sidebar-header {
+  padding: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.sidebar-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Sidebar Footer --- */
 .sidebar-footer {
   margin-top: auto;
   padding: 20px;
@@ -82,8 +103,13 @@ body {
   padding: 10px;
   display: flex;
   align-items: center;
-
   justify-content: space-between;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .user-avatar-img {
@@ -91,11 +117,28 @@ body {
   height: 40px;
   border-radius: 10px;
   border: 2px solid #ff6b6b;
-  /* Red border from Sidi Bou Solve design */
   object-fit: cover;
 }
 
-/* Hide text elements when collapsed to match image_3ade5f.png */
+.sidebar-username {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sidebar-logout-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.sidebar-logout-btn:hover {
+  opacity: 1;
+}
+
+/* --- Collapsed Sidebar Styles --- */
 .sidebar.collapsed .logo-text,
 .sidebar.collapsed .nav-label,
 .sidebar.collapsed .sidebar-username,
@@ -104,11 +147,20 @@ body {
   display: none;
 }
 
-/* Keep only the avatar visible and centered when collapsed */
+.sidebar.collapsed .logo-area {
+  justify-content: center;
+}
+
 .sidebar.collapsed .sidebar-user {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.sidebar.collapsed .sidebar-user-container {
+  display: flex !important;
+  justify-content: center;
+  padding: 10px;
 }
 
 .sidebar.collapsed .collapsed-logout-icon {
@@ -118,7 +170,7 @@ body {
   opacity: 0.8;
 }
 
-/* Sidebar Navigation Items */
+/* --- Sidebar Navigation Items --- */
 .sidebar-nav-item {
   display: flex;
   align-items: center;
@@ -127,6 +179,12 @@ body {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sidebar-nav-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .sidebar-nav-item.active {
@@ -139,4 +197,34 @@ body {
   justify-content: center;
   padding: 15px 0;
   border-left: none;
-} 
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.nav-label {
+  font-size: 14px;
+}
+
+/* --- Optionnel: Bouton hamburger --- */
+.hamburger-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-btn:hover {
+  transform: scale(1.1);
+}
+
+.sidebar.collapsed .hamburger-btn {
+  margin: 0 auto;
+}
