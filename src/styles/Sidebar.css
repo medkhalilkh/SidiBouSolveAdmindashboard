@@ -1,0 +1,136 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #2b5a8e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px 0;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 40px 20px;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.menu-toggle-icon {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 25px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.sidebar-nav-item.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: white;
+}
+
+/* Pushes the footer to the bottom */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px;
+   display: flex;           /* add */
+  align-items: center;     /* add */
+  justify-content: space-between; /* add */
+}
+
+
+.user-avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #ff6b6b;
+  object-fit: cover;
+}
+
+.sidebar-username {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-left: 12px; 
+  text-align: center;
+  white-space: nowrap;
+
+}
+
+.sidebar-logout-btn {
+  background: rgba(255, 255, 255, 0.15); /* Soft grey background */
+  border: none;
+  border-radius: 10px; /* Rounded square */
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.collapsed-logout-icon {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+/* Hiding text labels when collapsed */
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .sidebar-username,
+.sidebar.collapsed .sidebar-user-container {
+  display: none;
+}
+
+/* Show only avatar when collapsed */
+.sidebar.collapsed .sidebar-user {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.sidebar.collapsed .sidebar-nav-item {
+  justify-content: center;
+  padding: 15px 0;
+}

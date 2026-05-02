@@ -1,0 +1,129 @@
+/* Individual Card Container */
+.state-card-premium {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.state-card-premium:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Styling */
+.card-top-icon {
+  margin-bottom: 16px;
+}
+
+.p-icon-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+/* Typography & Badges */
+.card-main-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.badge-wrapper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.p-badge {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Status Colors */
+.status-published { 
+    background: #dcfce7; 
+    color: #166534; 
+}
+.status-draft { 
+    background: #fee2e2;
+     color: #991b1b; 
+    }
+
+/* Difficulty Colors */
+.diff-easy { 
+    background: #e0f2fe; 
+    color: #075985; 
+}
+.diff-medium { 
+    background: #fef3c7; 
+    color: #92400e; 
+}
+.diff-hard { 
+    background: #fce7f3; 
+    color: #9d174d; 
+}
+
+/* Stats Mini-Grid */
+.premium-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 24px;
+}
+
+.p-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p-val {
+  font-weight: 700;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.p-lab {
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Action Buttons Footer */
+.premium-footer-actions {   
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto; /* Pushes actions to the bottom of the card */
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.p-act-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.p-act-btn:hover {
+  background: #f1f5f9;
+}
+
+.p-act-btn.del:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}

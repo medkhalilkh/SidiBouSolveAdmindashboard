@@ -1,0 +1,7 @@
+.cards-grid-premium {
+  display: grid;
+  /* auto-fill prevents stretching seen in image_4a4801.png */
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 30px;
+  padding: 30px;
+}

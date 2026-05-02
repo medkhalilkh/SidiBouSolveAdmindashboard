@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px 0;
+}
+
+.navbar-slogan {
+  font-size: 23px;
+  color:#1e4a7a;
+  font-weight: 500;
+}
+
+.navbar-btn-create {
+  background: #1e4a7a;
+  color: #fff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.navbar-btn-create:hover {
+  background: #163d6a;
+}

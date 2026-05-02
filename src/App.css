@@ -1,0 +1,142 @@
+html,
+body,
+#root {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  text-align: left !important;
+  /* Overrides Vite's text-align: center */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* --- 2. Main Layout Structure --- */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f4f7fe;
+}
+
+/* The main content area that needs to shift */
+.app-main {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  /* Use !important to override any centered #root or hidden styles */
+  margin-left: 260px !important;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background-color: #f4f7fe !important;
+  min-width: 0 !important;
+}
+
+/* Reduces margin when sidebar is toggled */
+.app-main.collapsed {
+  margin-left: 80px !important;
+}
+
+/* Container for your dashboard/quizzes/categories content */
+.page-container {
+  padding: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* --- 3. Sidebar Specific Fixes --- */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #2b5a8e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px 0;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* Pushes the user profile card to the bottom */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px;
+}
+
+.sidebar-user-container {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.user-avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #ff6b6b;
+  /* Red border from Sidi Bou Solve design */
+  object-fit: cover;
+}
+
+/* Hide text elements when collapsed to match image_3ade5f.png */
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .sidebar-username,
+.sidebar.collapsed .sidebar-user-container,
+.sidebar.collapsed .sidebar-logout-btn {
+  display: none;
+}
+
+/* Keep only the avatar visible and centered when collapsed */
+.sidebar.collapsed .sidebar-user {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar.collapsed .collapsed-logout-icon {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  opacity: 0.8;
+}
+
+/* Sidebar Navigation Items */
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 25px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-nav-item.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: white;
+}
+
+.sidebar.collapsed .sidebar-nav-item {
+  justify-content: center;
+  padding: 15px 0;
+  border-left: none;
+} 
